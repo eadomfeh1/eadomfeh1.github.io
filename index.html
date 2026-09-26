@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmanuel Adjei Domfeh — Human-Centered AI Researcher</title>
+<meta name="description" content="Emmanuel Adjei Domfeh is a PhD candidate in Computer Science and Engineering at Penn State, working on human-centered AI, trust dynamics, and human-AI collaboration in disaster decision-making.">
+<meta name="author" content="Emmanuel Adjei Domfeh">
+
+<meta property="og:title" content="Emmanuel Adjei Domfeh — Human-Centered AI Researcher">
+<meta property="og:description" content="PhD candidate at Penn State working on human-centered AI, trust, and human-AI collaboration in disaster decision-making.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#16181d;
+  --ink-soft:#4a4f5a;
+  --ink-faint:#858b96;
+  --paper:#fbfaf8;
+  --paper-warm:#f4f2ee;
+  --line:#e3e0da;
+  --accent:#1f4d6b;
+  --accent-light:#2d6b91;
+  --accent-wash:#eef3f6;
+  --max:1120px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16.5px;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:var(--accent);text-decoration:none;transition:color .18s ease}
+a:hover{color:var(--accent-light)}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+
+/* ---------- NAV ---------- */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,250,248,.88);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .25s ease;
+}
+nav.scrolled{border-bottom-color:var(--line)}
+.nav-inner{
+  max-width:var(--max);margin:0 auto;padding:0 32px;
+  height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+}
+.nav-name{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:1.02rem;font-weight:600;color:var(--ink);
+  letter-spacing:-.01em;white-space:nowrap;
+}
+.nav-links{display:flex;gap:30px;list-style:none;align-items:center}
+.nav-links a{
+  font-size:.875rem;color:var(--ink-soft);font-weight:450;
+  position:relative;padding:4px 0;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:0;width:0;height:1.5px;
+  background:var(--accent);transition:width .22s ease;
+}
+.nav-links a:hover{color:var(--accent)}
+.nav-links a:hover::after{width:100%}
+
+/* ---------- HERO ---------- */
+header.hero{padding:88px 0 76px}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 268px;
+  gap:72px;align-items:center;
+}
+.eyebrow{
+  font-size:.75rem;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--accent);margin-bottom:20px;
+  display:flex;align-items:center;gap:11px;
+}
+.eyebrow::after{content:'';height:1px;width:52px;background:var(--line)}
+
+h1{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:clamp(2.6rem,5.6vw,3.9rem);
+  line-height:1.06;font-weight:600;letter-spacing:-.025em;
+  margin-bottom:22px;color:var(--ink);
+}
+.tagline{
+  font-size:1.2rem;color:var(--ink-soft);line-height:1.62;
+  max-width:37rem;margin-bottom:34px;font-weight:350;
+}
+.tagline strong{color:var(--ink);font-weight:550}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:7px;
+  font-size:.9rem;font-weight:500;
+  transition:all .2s ease;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent-light);color:#fff;transform:translateY(-1px);box-shadow:0 6px 18px rgba(31,77,107,.22)}
+.btn-ghost{border-color:var(--line);color:var(--ink-soft);background:#fff}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+
+.portrait{
+  width:268px;height:268px;border-radius:50%;
+  overflow:hidden;position:relative;display:block;
+  border:1px solid var(--line);
+  box-shadow:0 16px 44px rgba(22,24,29,.10);
+  background:var(--paper-warm);
+}
+.portrait img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  /* scale + shift keeps the face centred inside the circular crop */
+  transform:scale(1.14) translateY(3%);
+  transform-origin:center center;
+}
+.portrait-placeholder{
+  width:268px;height:268px;border-radius:50%;
+  background:linear-gradient(145deg,var(--paper-warm),#e8e5df);
+  border:1px dashed #c9c5bd;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:26px;gap:8px;
+}
+.portrait-placeholder span{font-size:.78rem;color:var(--ink-faint);line-height:1.5}
+.portrait-placeholder .pp-icon{font-size:1.6rem;opacity:.35}
+
+/* ---------- METRICS ---------- */
+.metrics{
+  background:var(--paper-warm);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:38px 0;
+}
+.metrics-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+}
+.metric{text-align:center}
+.metric-num{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:2.15rem;font-weight:600;color:var(--accent);
+  line-height:1;letter-spacing:-.02em;
+}
+.metric-label{
+  font-size:.775rem;color:var(--ink-soft);margin-top:9px;
+  letter-spacing:.04em;text-transform:uppercase;font-weight:500;
+}
+
+/* ---------- SECTIONS ---------- */
+section{padding:76px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:none}
+
+.sec-head{margin-bottom:44px;max-width:44rem}
+h2{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:2.05rem;font-weight:600;letter-spacing:-.02em;
+  margin-bottom:14px;line-height:1.18;
+}
+.sec-head p{color:var(--ink-soft);font-size:1.03rem;font-weight:350}
+
+h3{
+  font-size:1.04rem;font-weight:600;margin-bottom:5px;
+  letter-spacing:-.005em;line-height:1.4;
+}
+
+.prose p{margin-bottom:19px;max-width:44rem;color:var(--ink-soft);font-weight:350;font-size:1.03rem}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--ink);font-weight:550}
+
+/* ---------- RESEARCH CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(218px,1fr));gap:20px;margin-top:40px}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:11px;
+  padding:26px 24px;transition:all .22s ease;
+}
+.card:hover{border-color:#cfd6da;transform:translateY(-3px);box-shadow:0 10px 28px rgba(22,24,29,.07)}
+.card-mark{
+  width:34px;height:34px;border-radius:8px;background:var(--accent-wash);
+  display:flex;align-items:center;justify-content:center;margin-bottom:15px;
+  font-family:'Fraunces',serif;font-weight:600;color:var(--accent);font-size:.95rem;
+}
+.card h3{margin-bottom:8px}
+.card p{font-size:.9rem;color:var(--ink-soft);line-height:1.6;font-weight:350}
+
+/* ---------- PUBLICATIONS ---------- */
+.pub-group-label{
+  font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-faint);margin:40px 0 20px;padding-bottom:9px;
+  border-bottom:1px solid var(--line);
+}
+.pub-group-label:first-of-type{margin-top:0}
+
+.pub{
+  display:grid;grid-template-columns:60px 1fr;gap:22px;
+  padding:21px 0;border-bottom:1px solid #edeae5;
+}
+.pub:last-child{border-bottom:none}
+.pub-year{
+  font-family:'Fraunces',Georgia,serif;font-size:1.02rem;
+  color:var(--ink-faint);font-weight:500;padding-top:1px;
+}
+.pub-title{font-size:1.01rem;font-weight:550;line-height:1.48;margin-bottom:6px;color:var(--ink)}
+.pub-authors{font-size:.9rem;color:var(--ink-soft);margin-bottom:7px;font-weight:350}
+.pub-authors .me{color:var(--ink);font-weight:600}
+.pub-venue{font-size:.885rem;color:var(--ink-soft);font-style:italic;font-weight:350}
+.pub-meta{display:flex;flex-wrap:wrap;gap:9px;margin-top:11px;align-items:center}
+.chip{
+  font-size:.72rem;font-weight:550;padding:4px 10px;border-radius:20px;
+  background:var(--accent-wash);color:var(--accent);letter-spacing:.015em;
+}
+.chip-cite{background:#f0ede7;color:var(--ink-soft)}
+.chip-link{
+  font-size:.8rem;color:var(--accent);font-weight:500;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.chip-link:hover{text-decoration:underline}
+
+/* ---------- TIMELINE ---------- */
+.timeline{position:relative;padding-left:28px;margin-top:8px}
+.timeline::before{
+  content:'';position:absolute;left:5px;top:9px;bottom:9px;
+  width:1.5px;background:var(--line);
+}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:'';position:absolute;left:-28px;top:8px;
+  width:11px;height:11px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--accent);
+}
+.tl-item.past::before{border-color:#c6cdd2}
+.tl-date{
+  font-size:.775rem;color:var(--ink-faint);font-weight:550;
+  letter-spacing:.05em;text-transform:uppercase;margin-bottom:5px;
+}
+.tl-org{font-size:.93rem;color:var(--ink-soft);margin-bottom:7px;font-weight:400}
+.tl-desc{font-size:.92rem;color:var(--ink-soft);line-height:1.62;max-width:42rem;font-weight:350}
+
+/* ---------- TWO COLUMN ---------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:62px}
+
+.list-clean{list-style:none}
+.list-clean li{
+  padding:13px 0;border-bottom:1px solid #edeae5;
+  font-size:.945rem;color:var(--ink-soft);
+  display:flex;gap:13px;align-items:baseline;font-weight:350;
+}
+.list-clean li:last-child{border-bottom:none}
+.list-clean li::before{
+  content:'';flex-shrink:0;width:4px;height:4px;border-radius:50%;
+  background:var(--accent);opacity:.55;transform:translateY(-2px);
+}
+.list-clean strong{color:var(--ink);font-weight:550}
+
+.skill-block{margin-bottom:26px}
+.skill-block:last-child{margin-bottom:0}
+.skill-label{
+  font-size:.74rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-faint);margin-bottom:11px;
+}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font-size:.83rem;padding:6px 13px;border-radius:6px;
+  background:#fff;border:1px solid var(--line);color:var(--ink-soft);
+  transition:all .18s ease;
+}
+.tag:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---------- CONTACT ---------- */
+#contact{background:var(--paper-warm);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:62px;align-items:start}
+.contact-links{list-style:none;margin-top:26px}
+.contact-links li{padding:14px 0;border-bottom:1px solid var(--line)}
+.contact-links li:last-child{border-bottom:none}
+.contact-links .cl-label{
+  font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;margin-bottom:4px;
+}
+.contact-links .cl-value{font-size:.98rem;font-weight:450}
+
+/* ---------- FOOTER ---------- */
+footer{
+  padding:36px 0;background:var(--paper-warm);
+  border-top:1px solid var(--line);
+}
+.footer-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:20px;flex-wrap:wrap;
+}
+.footer-inner p{font-size:.85rem;color:var(--ink-faint);font-weight:350}
+.footer-links{display:flex;gap:22px;list-style:none}
+.footer-links a{font-size:.85rem;color:var(--ink-soft)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .two-col,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .hero-grid{grid-template-columns:1fr;gap:42px}
+  .hero-grid > div:last-child{display:flex;justify-content:center}
+  .portrait,.portrait-placeholder{width:190px;height:190px}
+  .metrics-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap,.nav-inner{padding:0 20px}
+  header.hero{padding:56px 0 50px}
+  section{padding:54px 0}
+  h2{font-size:1.72rem}
+  .nav-links{gap:17px}
+  .nav-links a{font-size:.81rem}
+  .nav-name{font-size:.93rem}
+  .pub{grid-template-columns:1fr;gap:7px}
+  .pub-year{font-size:.86rem}
+  .tagline{font-size:1.08rem}
+  .hero-actions{width:100%}
+  .btn{flex:1;justify-content:center;min-width:132px}
+}
+@media (max-width:420px){
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Emmanuel Adjei Domfeh</div>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Penn State · THiCC Lab</div>
+        <h1>Emmanuel Adjei&nbsp;Domfeh</h1>
+        <p class="tagline">
+          PhD candidate in Computer Science &amp; Engineering building
+          <strong>human-centered AI</strong> for high-stakes decisions — studying how people
+          and AI systems make choices together when disasters strike.
+        </p>
+        <div class="hero-actions">
+          <a href="#publications" class="btn btn-primary">View publications</a>
+          <a href="cv.pdf" class="btn btn-ghost">Download CV</a>
+          <a href="mailto:eza5399@psu.edu" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+      <div>
+        <div class="portrait">
+          <img src="photo.jpeg" alt="Portrait of Emmanuel Adjei Domfeh">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="metrics">
+  <div class="wrap">
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-num">108</div>
+        <div class="metric-label">Citations</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">4</div>
+        <div class="metric-label">h-index</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">6</div>
+        <div class="metric-label">Publications</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">9<span style="font-size:1.3rem">+</span></div>
+        <div class="metric-label">Years in research</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="research" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Research</h2>
+      <p>Understanding how humans and AI systems make decisions together — and designing that collaboration to be trustworthy when it matters most.</p>
+    </div>
+    <div class="prose">
+      <p>
+        I am a PhD candidate in the <strong>Human in Computing and Cognition (THiCC) Lab</strong> at
+        The Pennsylvania State University, advised by Dr. Christopher L. Dancy. My work sits within the
+        <strong>NSF AI Institute for Societal Decision Making (AI-SDM)</strong>, a federally funded institute
+        dedicated to building human-centric AI for disaster management and public health.
+      </p>
+      <p>
+        The question that drives my research is deceptively simple: when an emergency manager has minutes to
+        decide where to send rescue teams, and an AI system offers a recommendation — what actually happens?
+        Not what the model computes, but how a person under pressure interprets, trusts, overrides, or defers
+        to it. That interaction is where AI either saves lives or quietly fails. My systematic review of this
+        space, published at <strong>IEEE ISTAS 2025</strong>, maps the patterns of human–AI collaboration across
+        every phase of disaster management, and has been cited 23 times in its first year.
+      </p>
+      <p>
+        My dissertation work builds on that foundation across several threads: <strong>trust dynamics</strong> —
+        how reliance on AI is calibrated over repeated interactions and what causes it to break down;
+        <strong>human–AI collaboration</strong> — how to divide work between people and systems so each
+        contributes what it does best; and the design of explanations that remain usable when time is short.
+      </p>
+      <p>
+        Before Penn State, my research spanned machine learning for medical diagnostics, ensemble methods for
+        cybersecurity, and multi-criteria decision systems. The thread running through all of it is a concern
+        with how computational methods serve human judgment in consequential settings — and with ensuring those
+        systems work for everyone, including the communities disasters hit hardest.
+      </p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-mark">01</div>
+        <h3>Human-Centered AI</h3>
+        <p>Designing AI systems around how people actually reason, decide, and build trust — rather than around idealized rational agents.</p>
+      </div>
+      <div class="card">
+        <div class="card-mark">02</div>
+        <h3>Trust Dynamics</h3>
+        <p>How reliance on AI forms, erodes, and recalibrates across repeated interactions — and what keeps it appropriately calibrated.</p>
+      </div>
+      <div class="card">
+        <div class="card-mark">03</div>
+        <h3>Human–AI Collaboration</h3>
+        <p>Dividing work between people and AI systems so each contributes what it does best, especially under time pressure.</p>
+      </div>
+      <div class="card">
+        <div class="card-mark">04</div>
+        <h3>Decision-Making Under Uncertainty</h3>
+        <p>Disaster response settings where information is incomplete, time is short, and the stakes are lives.</p>
+      </div>
+      <div class="card">
+        <div class="card-mark">05</div>
+        <h3>Machine Learning</h3>
+        <p>Model development and rigorous evaluation, from medical diagnostics to ensemble methods for threat detection.</p>
+      </div>
+      <div class="card">
+        <div class="card-mark">06</div>
+        <h3>Multi-Criteria Decision Making</h3>
+        <p>Fuzzy AHP and optimization approaches for resource allocation and siting problems with competing objectives.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Publications</h2>
+      <p>Peer-reviewed research in human-centered AI, machine learning, and quantum computing.
+        <a href="https://scholar.google.com/citations?user=QS6Mi14AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      </p>
+    </div>
+
+    <div class="pub-group-label">Peer-Reviewed</div>
+
+    <div class="pub">
+      <div class="pub-year">2025</div>
+      <div>
+        <div class="pub-title">Human-AI Use Patterns for Decision-Making in Disaster Scenarios: A Systematic Review</div>
+        <div class="pub-authors"><span class="me">E. Adjei Domfeh</span>, C. L. Dancy</div>
+        <div class="pub-venue">2025 IEEE International Symposium on Technology and Society (ISTAS), pp. 1–10</div>
+        <div class="pub-meta">
+          <span class="chip">First author</span>
+          <span class="chip chip-cite">23 citations</span>
+          <a href="https://doi.org/10.1109/ISTAS65609.2025.11269624" class="chip-link" target="_blank" rel="noopener">DOI ↗</a>
+          <a href="https://arxiv.org/abs/2509.12034" class="chip-link" target="_blank" rel="noopener">arXiv ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2023</div>
+      <div>
+        <div class="pub-title">Ensemble Machine Learning Techniques for Accurate and Efficient Detection of Botnet Attacks in Connected Computers</div>
+        <div class="pub-authors">S. Afrifa, V. Varadarajan, P. Appiahene, T. Zhang, <span class="me">E. Adjei Domfeh</span></div>
+        <div class="pub-venue">Eng, 4(1), 650–664</div>
+        <div class="pub-meta">
+          <span class="chip chip-cite">57 citations</span>
+          <a href="https://doi.org/10.3390/eng4010039" class="chip-link" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">Quantum Blockchain: A Systematic Review</div>
+        <div class="pub-authors">P. Nimbe, B. A. Weyori, J. Mensah, A. A. Amponsah, A. F. Adekoya, <span class="me">E. Adjei Domfeh</span></div>
+        <div class="pub-venue">Advancements in Quantum Blockchain With Real-Time Applications, pp. 1–35. IGI Global</div>
+        <div class="pub-meta">
+          <span class="chip chip-cite">9 citations</span>
+          <a href="https://doi.org/10.4018/978-1-6684-5072-7.ch001" class="chip-link" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">Innovative Approaches to Classical and Quantum Reflected Binary Code Generation using Pascal Triangle, Reversible N-Input C-Gate and Reversible N-Input Q-Gate</div>
+        <div class="pub-authors">P. Nimbe, P. Yeng, E. Okyere, B. A. Weyori, A. F. Adekoya, P. Appiahene, et al., <span class="me">E. Adjei Domfeh</span></div>
+        <div class="pub-venue">Journal of Algebraic Statistics, 13(3), 4708–4734</div>
+        <div class="pub-meta">
+          <span class="chip chip-cite">4 citations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-group-label">Preprints &amp; Under Review</div>
+
+    <div class="pub">
+      <div class="pub-year">2023</div>
+      <div>
+        <div class="pub-title">Human-Centered Artificial Intelligence, a Review</div>
+        <div class="pub-authors"><span class="me">E. Adjei Domfeh</span>, B. Weyori, J. Mensah, N. Awarayi, P. Appiahene</div>
+        <div class="pub-venue">TechRxiv preprint · under review</div>
+        <div class="pub-meta">
+          <span class="chip">First author</span>
+          <span class="chip chip-cite">11 citations</span>
+          <a href="https://doi.org/10.36227/techrxiv.19174772.v1" class="chip-link" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">2022</div>
+      <div>
+        <div class="pub-title">Definitions of Artificial Intelligence: A Review</div>
+        <div class="pub-authors">P. Appiahene, <span class="me">E. Adjei Domfeh</span>, B. Andoh</div>
+        <div class="pub-venue">Authorea preprint</div>
+        <div class="pub-meta">
+          <span class="chip chip-cite">4 citations</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-year">—</div>
+      <div>
+        <div class="pub-title">Determining the Best Site Location for Underground Dams using Fuzzy Analytic Hierarchy Process: A Case Study in the Sunyani West District</div>
+        <div class="pub-authors"><span class="me">E. Adjei Domfeh</span>, A. F. Adekoya, B. A. Weyori, J. Mensah, S. Afrifa</div>
+        <div class="pub-venue">International Journal of Intelligent Systems and Applications · under review</div>
+        <div class="pub-meta"><span class="chip">First author</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Experience &amp; Education</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="skill-label" style="margin-bottom:22px">Appointments</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">Aug 2024 — Present</div>
+            <h3>Graduate Research Assistant</h3>
+            <div class="tl-org">THiCC Lab, The Pennsylvania State University</div>
+            <div class="tl-desc">Research on the NSF AI Institute for Societal Decision Making (AI-SDM, Award 2229881), studying human–AI use patterns, trust dynamics, and collaboration in disaster decision-making under Dr. Christopher L. Dancy.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-date">Aug 2023 — Present</div>
+            <h3>Assistant Lecturer</h3>
+            <div class="tl-org">University of Energy and Natural Resources, Ghana <em>(on study leave)</em></div>
+            <div class="tl-desc">Teaching undergraduate computer science, supervising student projects, and contributing to departmental research and community service.</div>
+          </div>
+          <div class="tl-item past">
+            <div class="tl-date">Feb 2021 — Jul 2023</div>
+            <h3>Senior Research Assistant</h3>
+            <div class="tl-org">University of Energy and Natural Resources, Ghana</div>
+            <div class="tl-desc">Supported faculty research across machine learning and quantum computing, co-authoring peer-reviewed publications. Named <strong>Best Senior Research Assistant</strong> in the department.</div>
+          </div>
+          <div class="tl-item past">
+            <div class="tl-date">Oct 2018 — Jan 2021</div>
+            <h3>Programs Officer</h3>
+            <div class="tl-org">Regional Department of Community Development, Sunyani</div>
+            <div class="tl-desc">Managed all departmental computing and technology operations as regional IT and operations officer.</div>
+          </div>
+          <div class="tl-item past">
+            <div class="tl-date">Aug 2017 — Aug 2018</div>
+            <h3>Teaching &amp; Research Assistant</h3>
+            <div class="tl-org">University of Energy and Natural Resources, Ghana</div>
+            <div class="tl-desc">Supported the Head of Computer Science and Informatics with teaching, research, and administration.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="skill-label" style="margin-bottom:22px">Education</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-date">Aug 2024 — Present</div>
+            <h3>PhD Candidate, Computer Science &amp; Engineering</h3>
+            <div class="tl-org">The Pennsylvania State University</div>
+            <div class="tl-desc">Advanced to candidacy. Advisor: Dr. Christopher L. Dancy. Dissertation research on human-centered AI, trust dynamics, and human–AI collaboration in disaster decision-making.</div>
+          </div>
+          <div class="tl-item past">
+            <div class="tl-date">Oct 2018 — Feb 2021</div>
+            <h3>MPhil, Computer Science</h3>
+            <div class="tl-org">University of Energy and Natural Resources, Ghana</div>
+            <div class="tl-desc">Thesis: <em>Performance Analysis and Evaluation of Machine Learning Models in Breast Cancer Detection.</em></div>
+          </div>
+          <div class="tl-item past">
+            <div class="tl-date">Oct 2013 — Jul 2017</div>
+            <h3>BSc, Computer Science</h3>
+            <div class="tl-org">University of Energy and Natural Resources, Ghana</div>
+            <div class="tl-desc">Second Class Upper Honors. Final project applied Fuzzy AHP multi-criteria decision-making to underground dam siting.</div>
+          </div>
+        </div>
+
+        <div class="skill-label" style="margin-top:44px;margin-bottom:14px">Service &amp; Affiliations</div>
+        <ul class="list-clean">
+          <li><span><strong>Peer Reviewer</strong>, IEEE Transactions on Human-Machine Systems</span></li>
+          <li><span><strong>Member</strong>, Institute of Electrical and Electronics Engineers (IEEE)</span></li>
+          <li><span><strong>Member</strong>, IEEE Society on Social Implications of Technology (SSIT)</span></li>
+        </ul>
+
+        <div class="skill-label" style="margin-top:36px;margin-bottom:14px">Awards</div>
+        <ul class="list-clean">
+          <li><span><strong>Best Senior Research Assistant</strong> — Dept. of Computer Science &amp; Informatics, UENR</span></li>
+          <li><span><strong>Best Departmental Officer</strong> — Dept. of Information Technology &amp; Decision Sciences, UENR</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching" class="reveal">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Teaching &amp; Technical</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="prose">
+          <p>
+            Teaching has been part of my work since 2017. As an Assistant Lecturer at the University of Energy
+            and Natural Resources, I taught undergraduate courses in programming and computing while supervising
+            final-year projects — the part of the job I find most rewarding, because it is where students stop
+            following instructions and start making their own decisions.
+          </p>
+          <p>
+            My approach is grounded in the same conviction that drives my research: technology is only as good as
+            the human judgment surrounding it. I want students to leave a course able to reason about
+            <em>why</em> a method fits a problem, not just how to run it.
+          </p>
+        </div>
+        <div class="skill-label" style="margin-top:32px;margin-bottom:14px">Courses Taught</div>
+        <ul class="list-clean">
+          <li>Programming with C++</li>
+          <li>Mobile Computing</li>
+          <li>Principles of Programming</li>
+          <li>E-Commerce Technologies</li>
+          <li>Undergraduate project supervision</li>
+        </ul>
+      </div>
+      <div>
+        <div class="skill-block">
+          <div class="skill-label">Languages</div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span>
+            <span class="tag">Dart</span><span class="tag">VB.NET</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Methods</div>
+          <div class="tags">
+            <span class="tag">Trust Calibration</span><span class="tag">Human–AI Interaction</span>
+            <span class="tag">Cognitive Modeling</span><span class="tag">Machine Learning</span>
+            <span class="tag">Systematic Review</span><span class="tag">Data Analysis</span>
+            <span class="tag">Fuzzy AHP</span><span class="tag">Conceptual Modelling</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Certifications</div>
+          <div class="tags">
+            <span class="tag">Python for Data Science — IBM</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Selected Software Built</div>
+          <ul class="list-clean">
+            <li>Pharmacy Management System — Sunyani Regional Hospital</li>
+            <li>Health Screening Data Entry App — Friends of Health (NGO)</li>
+            <li>Restaurant Management System — Tasty Joint, Sunyani</li>
+            <li>Sports Scouting Web Application</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Get in touch</h2>
+        <div class="prose" style="margin-top:16px">
+          <p>
+            I welcome conversations about human-centered AI, trust and collaboration between people and
+            AI systems, disaster decision-making, and opportunities to bring this work into practice. Whether you are a
+            researcher, an emergency management practitioner, or a student curious about this field —
+            do reach out.
+          </p>
+        </div>
+        <div class="hero-actions" style="margin-top:28px">
+          <a href="mailto:eza5399@psu.edu" class="btn btn-primary">Email me</a>
+          <a href="cv.pdf" class="btn btn-ghost">Download CV</a>
+        </div>
+      </div>
+      <div>
+        <ul class="contact-links">
+          <li>
+            <div class="cl-label">Email</div>
+            <div class="cl-value"><a href="mailto:eza5399@psu.edu">eza5399@psu.edu</a></div>
+          </li>
+          <li>
+            <div class="cl-label">Google Scholar</div>
+            <div class="cl-value"><a href="https://scholar.google.com/citations?user=QS6Mi14AAAAJ" target="_blank" rel="noopener">scholar.google.com ↗</a></div>
+          </li>
+          <li>
+            <div class="cl-label">ORCID</div>
+            <div class="cl-value"><a href="https://orcid.org/0000-0002-7450-4928" target="_blank" rel="noopener">0000-0002-7450-4928 ↗</a></div>
+          </li>
+          <li>
+            <div class="cl-label">Affiliation</div>
+            <div class="cl-value" style="color:var(--ink-soft);font-weight:350">THiCC Lab, Penn State University<br>University Park, PA, USA</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>© <span id="yr">2026</span> Emmanuel Adjei Domfeh</p>
+    <ul class="footer-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="mailto:eza5399@psu.edu">Email</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 12);
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
